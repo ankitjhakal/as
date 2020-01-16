@@ -1,4 +1,4 @@
-
+<!-- login form -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -17,6 +17,7 @@
 
   </body>
 </html>
+<!-- database connectivity -->
 <?php
 session_start();
 $servername="localhost";
@@ -31,6 +32,7 @@ if(!$conn)
 echo "connection error";
 exit();
 }
+// if username and password are correct then redirect to 1.php
 if(isset($_POST['username'])){
   $user=$_POST['username'];
   $pwd=$_POST['password'];
@@ -46,14 +48,15 @@ if(isset($_POST['username'])){
   {
    header('location: 1.php');
   }
+  // if username or password is incorrect redirect to login form again
     else {
       echo "<h2>Incorrect details</h2>";
-    include('login.php');
+       header('location:login.php');
 
   }
 
 }
 else{
-  echo "inncorrect";
+  echo "incorrect";
 }
 ?>
